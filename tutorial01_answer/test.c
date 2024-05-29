@@ -80,7 +80,7 @@ static void test_parse() {
     test_parse_root_not_singular();
 }
 
-int main() {
+int test_main() {
     test_parse();
     printf("%d/%d (%3.2f%%) passed\n", test_pass, test_count, test_pass * 100.0 / test_count);
     return main_ret;
