@@ -71,10 +71,10 @@ void lept_set_number(lept_value* v, double n) {
 #endif
 ~~~
 
-并在 `main()` 开始位置插入：
+并在 `test_main()` 开始位置插入：
 
 ~~~c
-int main() {
+int test_main() {
 #ifdef _WINDOWS
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
@@ -126,7 +126,7 @@ $ valgrind --leak-check=full  ./leptjson_test
 ==22078==    by 0x100008F36: lept_set_string (leptjson.c:208)
 ==22078==    by 0x100008415: test_access_boolean (test.c:187)
 ==22078==    by 0x100001849: test_parse (test.c:229)
-==22078==    by 0x1000017A3: main (test.c:235)
+==22078==    by 0x1000017A3: test_main (test.c:235)
 ==22078== 
 ...
 ~~~
@@ -154,7 +154,7 @@ $ valgrind --leak-check=full  ./leptjson_test
 ==22174==    by 0x100008F26: lept_set_string (leptjson.c:207)
 ==22174==    by 0x1000083FE: test_access_boolean (test.c:187)
 ==22174==    by 0x100001839: test_parse (test.c:229)
-==22174==    by 0x100001793: main (test.c:235)
+==22174==    by 0x100001793: test_main (test.c:235)
 ==22174== 
 ~~~
 

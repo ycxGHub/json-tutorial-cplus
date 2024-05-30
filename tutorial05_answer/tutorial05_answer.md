@@ -84,7 +84,7 @@ static int lept_parse_array(lept_context* c, lept_value* v) {
 ==154==    by 0x409F14: lept_parse (in /json-tutorial/tutorial05/build/leptjson_test)
 ==154==    by 0x405261: test_parse_array (in /json-tutorial/tutorial05/build/leptjson_test)
 ==154==    by 0x408C72: test_parse (in /json-tutorial/tutorial05/build/leptjson_test)
-==154==    by 0x40916A: main (in /json-tutorial/tutorial05/build/leptjson_test)
+==154==    by 0x40916A: test_main (in /json-tutorial/tutorial05/build/leptjson_test)
 ==154== 
 ==154== 240 (96 direct, 144 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 4
 ==154==    at 0x4C28C20: malloc (vg_replace_malloc.c:296)
@@ -93,7 +93,7 @@ static int lept_parse_array(lept_context* c, lept_value* v) {
 ==154==    by 0x409F14: lept_parse (in /json-tutorial/tutorial05/build/leptjson_test)
 ==154==    by 0x40582C: test_parse_array (in /json-tutorial/tutorial05/build/leptjson_test)
 ==154==    by 0x408C72: test_parse (in /json-tutorial/tutorial05/build/leptjson_test)
-==154==    by 0x40916A: main (in /json-tutorial/tutorial05/build/leptjson_test)
+==154==    by 0x40916A: test_main (in /json-tutorial/tutorial05/build/leptjson_test)
 ~~~
 
 很明显，有 `malloc()` 就要有对应的 `free()`。正确的释放位置应该放置在 `lept_free()`，当值被释放时，该值拥有的内存也在那里释放。之前字符串的释放也是放在这里：
